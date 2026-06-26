@@ -1,10 +1,636 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Pinak Chambers</title>
+  <meta name="description" content="Pinak Chambers is a modern legal practice focused on litigation, public-interest work, and client-first legal support." />
+
+  <style>
+    :root {
+      --navy: #0b1220;
+      --navy-soft: #111827;
+      --slate: #334155;
+      --muted: #64748b;
+      --line: #e5e7eb;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --accent: #cbd5e1;
+      --dark-accent: #1e293b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(11, 18, 32, 0.92), rgba(11, 18, 32, 0.92)),
+        radial-gradient(circle at top right, #1e293b, #0b1220);
+      color: var(--white);
+      padding: 28px;
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 21px;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: #dbeafe;
+    }
+
+    .nav-links a {
+      opacity: 0.82;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 135px 0 80px;
+    }
+
+    .latin {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(34px, 6vw, 76px);
+      line-height: 1.05;
+      max-width: 950px;
+      letter-spacing: -1px;
+      margin-bottom: 26px;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 90px 28px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    p {
+      font-size: 18px;
+      color: var(--slate);
+    }
+
+    .wide-text {
+      max-width: 860px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .panel h3 {
+      font-size: 23px;
+      margin-bottom: 14px;
+      color: var(--navy);
+    }
+
+    .panel p {
+      font-size: 16px;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .area-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .area-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--navy);
+    }
+
+    .area-card p {
+      font-size: 15.5px;
+      color: var(--muted);
+    }
+
+    .cities {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .city-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .city {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--dark-accent);
+      text-align: center;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 22px;
+      padding: 28px;
+      min-height: 150px;
+    }
+
+    .stat h3 {
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .stat p {
+      font-size: 15px;
+      color: #cbd5e1;
+    }
+
+    .founder-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 34px;
+      align-items: center;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .portrait-placeholder {
+      min-height: 330px;
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.78)),
+        linear-gradient(135deg, #334155, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e2e8f0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: 28px;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .founder-card h3 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .co-counsels {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 30px;
+    }
+
+    .co-counsels h2,
+    .co-counsels p {
+      color: var(--white);
+    }
+
+    .co-counsels .eyebrow {
+      color: #cbd5e1;
+    }
+
+    .counsel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .counsel-card {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .counsel-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .counsel-card p {
+      font-size: 15.5px;
+      color: #cbd5e1;
+    }
+
+    .contact {
+      text-align: center;
+      max-width: 780px;
+    }
+
+    .contact .btn {
+      margin-top: 28px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .contact .btn:hover {
+      background: var(--dark-accent);
+    }
+
+    footer {
+      padding: 34px 28px;
+      text-align: center;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 95px;
+      }
+
+      .split,
+      .founder-card {
+        grid-template-columns: 1fr;
+      }
+
+      .areas-grid,
+      .counsel-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats,
+      .city-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      header {
+        padding: 22px;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .section {
+        padding: 70px 22px;
+      }
+
+      .areas-grid,
+      .counsel-grid,
+      .stats,
+      .city-list {
+        grid-template-columns: 1fr;
+      }
+
+      .latin {
+        font-size: 42px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Pinak Chambers</h1>
-  <p>Legal practice focused on access to justice, public-interest litigation, and client-focused legal support.</p>
+  <div class="page">
+
+    <header id="home">
+      <nav class="nav">
+        <a href="#home" class="brand">
+          Pinak Chambers
+          <span>Legal Practice</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#areas">Areas</a>
+          <a href="#cities">Cities</a>
+          <a href="#impact">Impact</a>
+          <a href="#founder">Founder</a>
+          <a href="#co-counsels">Co-Counsels</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <h1 class="latin">Fiat Justitia, Ruat Caelum</h1>
+        <p class="hero-subtitle">
+          A modern legal practice built around access, strategy, and sustained advocacy.
+          Pinak Chambers works across litigation, public-interest matters, and client-first legal support.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#areas" class="btn btn-primary">Explore Practice Areas</a>
+          <a href="#contact" class="btn btn-secondary">Contact Chambers</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+
+      <section id="about" class="section">
+        <p class="eyebrow">About</p>
+        <h2>Independent legal representation for complex and meaningful matters.</h2>
+        <p class="wide-text">
+          Pinak Chambers is a founder-led legal practice focused on clients who require serious,
+          sustained, and strategic advocacy. The Chambers works on matters that often involve
+          litigation, institutional barriers, public-interest concerns, and long-term client support.
+        </p>
+      </section>
+
+      <section id="areas" class="section">
+        <p class="eyebrow">Areas</p>
+        <h2>Practice areas</h2>
+        <p class="wide-text">
+          The practice is designed for clients who need clarity, preparation, and a focused legal strategy.
+        </p>
+
+        <div class="areas-grid">
+          <div class="area-card">
+            <h3>Litigation</h3>
+            <p>Civil, criminal, and strategic litigation support across courts and legal forums.</p>
+          </div>
+
+          <div class="area-card">
+            <h3>Election Law</h3>
+            <p>Legal work connected to election disputes, electoral processes, and public accountability.</p>
+          </div>
+
+          <div class="area-card">
+            <h3>Public Interest</h3>
+            <p>Matters involving access to justice, public rights, and institutional accountability.</p>
+          </div>
+
+          <div class="area-card">
+            <h3>Veterans' Rights</h3>
+            <p>Support in matters connected to welfare, medical rights, and institutional relief.</p>
+          </div>
+
+          <div class="area-card">
+            <h3>Child Protection</h3>
+            <p>Legal support in sensitive matters requiring confidentiality, care, and seriousness.</p>
+          </div>
+
+          <div class="area-card">
+            <h3>Legal Consultation</h3>
+            <p>Focused legal consultation for individuals, families, and organisations seeking direction.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cities" class="cities">
+        <div class="section">
+          <p class="eyebrow">Cities</p>
+          <h2>Operating across cities</h2>
+          <p class="wide-text">
+            Pinak Chambers is building a multi-city legal presence while keeping its work personal,
+            accessible, and founder-led.
+          </p>
+
+          <div class="city-list">
+            <div class="city">Delhi</div>
+            <div class="city">Gurugram</div>
+            <div class="city">City Three</div>
+            <div class="city">City Four</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact" class="section">
+        <p class="eyebrow">Impact</p>
+        <h2>Built around measurable legal access.</h2>
+        <p class="wide-text">
+          The Chambers is shaped by the belief that legal representation should be serious,
+          strategic, and accessible to clients who need it most.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>250+</h3>
+            <p>Clients served through the practice.</p>
+          </div>
+
+          <div class="stat">
+            <h3>10</h3>
+            <p>People contributing to the Chambers and its work.</p>
+          </div>
+
+          <div class="stat">
+            <h3>4</h3>
+            <p>Cities connected to the Chambers' operations.</p>
+          </div>
+
+          <div class="stat">
+            <h3>60%</h3>
+            <p>Approximate matters handled on a pro bono basis.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="founder" class="section">
+        <div class="founder-card">
+          <div class="portrait-placeholder">
+            Founder photo / logo space
+          </div>
+
+          <div>
+            <p class="eyebrow">Founder</p>
+            <h3>Founder-led legal practice</h3>
+            <p>
+              Pinak Chambers is led by a first-generation legal entrepreneur building a practice
+              around litigation, public-interest work, and access to justice. The founder's work
+              reflects a commitment to clients who require long-term support, careful preparation,
+              and serious legal representation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="co-counsels" class="section co-counsels">
+        <p class="eyebrow">Co-Counsels</p>
+        <h2>Collaborative legal support where matters require depth.</h2>
+        <p class="wide-text">
+          Pinak Chambers works with co-counsels, lawyers, researchers, and legal professionals
+          depending on the complexity, forum, and nature of each matter.
+        </p>
+
+        <div class="counsel-grid">
+          <div class="counsel-card">
+            <h3>Litigation Support</h3>
+            <p>Collaboration for court strategy, drafting, research, and procedural preparation.</p>
+          </div>
+
+          <div class="counsel-card">
+            <h3>Research Support</h3>
+            <p>Focused legal research for complex questions, precedents, and public-interest matters.</p>
+          </div>
+
+          <div class="counsel-card">
+            <h3>Specialist Counsel</h3>
+            <p>Engagement with specialists where a matter requires domain-specific legal knowledge.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Speak with Pinak Chambers</h2>
+        <p>
+          For legal inquiries, collaborations, or professional correspondence, contact the Chambers directly.
+        </p>
+
+        <a href="mailto:your-email@example.com" class="btn">Email Pinak Chambers</a>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2026 Pinak Chambers. All rights reserved.
+    </footer>
+
+  </div>
 </body>
 </html>
