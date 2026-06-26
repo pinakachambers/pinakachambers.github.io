@@ -4,20 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <title>Pinak Chambers</title>
   <meta name="description" content="Pinak Chambers is a modern legal practice focused on litigation, public-interest work, and client-first legal support." />
 
   <style>
     :root {
-      --navy: #0b1220;
-      --navy-soft: #111827;
-      --slate: #334155;
-      --muted: #64748b;
-      --line: #e5e7eb;
-      --bg: #f8fafc;
-      --white: #ffffff;
-      --accent: #cbd5e1;
-      --dark-accent: #1e293b;
+      --bg: #FAF9F7;
+      --text: #111111;
+      --text-soft: #4B4B4B;
+      --accent: #8B8175;
+      --border: #E6E1DA;
+      --white: #FFFFFF;
+
+      --font-main: 'Manrope', Arial, sans-serif;
+      --font-quote: 'Cormorant Garamond', Georgia, serif;
     }
 
     * {
@@ -31,9 +35,9 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--font-main);
       background: var(--bg);
-      color: var(--navy);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -48,11 +52,10 @@
 
     header {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(11, 18, 32, 0.92), rgba(11, 18, 32, 0.92)),
-        radial-gradient(circle at top right, #1e293b, #0b1220);
-      color: var(--white);
-      padding: 28px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px;
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
@@ -65,16 +68,16 @@
     }
 
     .brand {
-      font-size: 21px;
-      letter-spacing: 0.5px;
-      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.3px;
+      font-weight: 600;
     }
 
     .brand span {
       display: block;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 3px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.8px;
       text-transform: uppercase;
       color: var(--accent);
       margin-top: 2px;
@@ -82,10 +85,10 @@
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 24px;
       flex-wrap: wrap;
       font-size: 14px;
-      color: #dbeafe;
+      color: var(--text-soft);
     }
 
     .nav-links a {
@@ -95,28 +98,43 @@
 
     .nav-links a:hover {
       opacity: 1;
+      color: var(--text);
     }
 
     .hero {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 135px 0 80px;
+      padding: 145px 0 90px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: end;
     }
 
-    .latin {
-      font-family: Georgia, "Times New Roman", serif;
-      font-style: italic;
-      font-size: clamp(34px, 6vw, 76px);
+    .hero-title {
+      font-family: var(--font-main);
+      font-size: 64px;
+      font-weight: 600;
       line-height: 1.05;
-      max-width: 950px;
-      letter-spacing: -1px;
-      margin-bottom: 26px;
+      letter-spacing: -2.4px;
+      color: var(--text);
+      margin-bottom: 16px;
+      max-width: 760px;
+    }
+
+    .motto {
+      font-family: var(--font-quote);
+      font-style: italic;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 32px;
     }
 
     .hero-subtitle {
       max-width: 760px;
-      font-size: 20px;
-      color: #cbd5e1;
+      font-size: 18px;
+      color: var(--text-soft);
       margin-bottom: 36px;
     }
 
@@ -130,33 +148,61 @@
       display: inline-block;
       border-radius: 999px;
       padding: 13px 22px;
-      font-weight: 700;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 16px;
       transition: 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--white);
-      color: var(--navy);
+      background: var(--text);
+      color: var(--white);
+      border: 1px solid var(--text);
     }
 
     .btn-primary:hover {
-      background: #e2e8f0;
+      background: var(--accent);
+      border-color: var(--accent);
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: var(--white);
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-note {
+      border-left: 1px solid var(--border);
+      padding-left: 28px;
+    }
+
+    .hero-note p {
+      font-family: var(--font-quote);
+      font-size: 28px;
+      font-style: italic;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .hero-note span {
+      display: block;
+      margin-top: 18px;
+      font-family: var(--font-main);
+      font-size: 13px;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-style: normal;
     }
 
     .section {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 90px 28px;
+      padding: 92px 30px;
     }
 
     .eyebrow {
@@ -164,46 +210,48 @@
       letter-spacing: 2.5px;
       font-size: 12px;
       font-weight: 700;
-      color: var(--muted);
-      margin-bottom: 12px;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     h2 {
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: 42px;
       line-height: 1.15;
-      letter-spacing: -0.6px;
-      color: var(--navy);
+      font-weight: 600;
+      letter-spacing: -1.4px;
+      color: var(--text);
       margin-bottom: 22px;
+      max-width: 820px;
     }
 
     p {
       font-size: 18px;
-      color: var(--slate);
+      color: var(--text-soft);
     }
 
     .wide-text {
-      max-width: 860px;
+      max-width: 850px;
     }
 
     .split {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 44px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
       align-items: start;
     }
 
     .panel {
       background: var(--white);
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
       border-radius: 22px;
-      padding: 30px;
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+      padding: 32px;
     }
 
     .panel h3 {
       font-size: 23px;
+      font-weight: 600;
       margin-bottom: 14px;
-      color: var(--navy);
+      color: var(--text);
     }
 
     .panel p {
@@ -214,31 +262,33 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 34px;
+      margin-top: 36px;
     }
 
     .area-card {
       background: var(--white);
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 26px;
+      padding: 28px;
+      min-height: 190px;
     }
 
     .area-card h3 {
       font-size: 20px;
-      margin-bottom: 10px;
-      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 11px;
+      color: var(--text);
     }
 
     .area-card p {
       font-size: 15.5px;
-      color: var(--muted);
+      color: var(--text-soft);
     }
 
     .cities {
       background: var(--white);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .city-list {
@@ -249,12 +299,12 @@
     }
 
     .city {
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
       border-radius: 18px;
       padding: 24px;
-      background: #f8fafc;
-      font-weight: 700;
-      color: var(--dark-accent);
+      background: var(--bg);
+      font-weight: 600;
+      color: var(--text);
       text-align: center;
     }
 
@@ -262,51 +312,50 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      margin-top: 34px;
+      margin-top: 36px;
     }
 
     .stat {
-      background: var(--navy);
+      background: var(--text);
       color: var(--white);
       border-radius: 22px;
-      padding: 28px;
-      min-height: 150px;
+      padding: 30px;
+      min-height: 155px;
     }
 
     .stat h3 {
       font-size: 42px;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
     .stat p {
       font-size: 15px;
-      color: #cbd5e1;
+      color: #E6E1DA;
     }
 
     .founder-card {
       background: var(--white);
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
       border-radius: 28px;
-      padding: 40px;
+      padding: 42px;
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 34px;
+      gap: 36px;
       align-items: center;
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
     }
 
     .portrait-placeholder {
       min-height: 330px;
       border-radius: 24px;
-      background:
-        linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.78)),
-        linear-gradient(135deg, #334155, #0f172a);
+      background: var(--bg);
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #e2e8f0;
-      font-family: Georgia, "Times New Roman", serif;
+      color: var(--accent);
+      font-family: var(--font-quote);
       font-style: italic;
       font-size: 28px;
       text-align: center;
@@ -314,12 +363,15 @@
     }
 
     .founder-card h3 {
-      font-size: 32px;
+      font-size: 36px;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -1px;
       margin-bottom: 16px;
     }
 
     .co-counsels {
-      background: var(--navy);
+      background: var(--text);
       color: var(--white);
       border-radius: 30px;
     }
@@ -330,31 +382,32 @@
     }
 
     .co-counsels .eyebrow {
-      color: #cbd5e1;
+      color: var(--accent);
     }
 
     .counsel-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 32px;
+      margin-top: 34px;
     }
 
     .counsel-card {
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(230, 225, 218, 0.24);
       border-radius: 20px;
-      padding: 26px;
+      padding: 28px;
       background: rgba(255, 255, 255, 0.04);
     }
 
     .counsel-card h3 {
       font-size: 20px;
-      margin-bottom: 8px;
+      font-weight: 600;
+      margin-bottom: 9px;
     }
 
     .counsel-card p {
       font-size: 15.5px;
-      color: #cbd5e1;
+      color: #E6E1DA;
     }
 
     .contact {
@@ -362,22 +415,21 @@
       max-width: 780px;
     }
 
-    .contact .btn {
-      margin-top: 28px;
-      background: var(--navy);
-      color: var(--white);
+    .contact h2 {
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .contact .btn:hover {
-      background: var(--dark-accent);
+    .contact .btn {
+      margin-top: 30px;
     }
 
     footer {
-      padding: 34px 28px;
+      padding: 34px 30px;
       text-align: center;
       background: var(--white);
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+      border-top: 1px solid var(--border);
+      color: var(--accent);
       font-size: 14px;
     }
 
@@ -388,7 +440,9 @@
       }
 
       .hero {
-        padding-top: 95px;
+        grid-template-columns: 1fr;
+        padding-top: 100px;
+        gap: 44px;
       }
 
       .split,
@@ -404,6 +458,14 @@
       .stats,
       .city-list {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-title {
+        font-size: 54px;
+      }
+
+      h2 {
+        font-size: 38px;
       }
     }
 
@@ -427,8 +489,20 @@
         grid-template-columns: 1fr;
       }
 
-      .latin {
-        font-size: 42px;
+      .hero-title {
+        font-size: 44px;
+      }
+
+      .motto {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .hero-note p {
+        font-size: 24px;
       }
     }
   </style>
@@ -456,15 +530,26 @@
       </nav>
 
       <section class="hero">
-        <h1 class="latin">Fiat Justitia, Ruat Caelum</h1>
-        <p class="hero-subtitle">
-          A modern legal practice built around access, strategy, and sustained advocacy.
-          Pinak Chambers works across litigation, public-interest matters, and client-first legal support.
-        </p>
+        <div>
+          <h1 class="hero-title">Pinak Chambers</h1>
+          <p class="motto">Fiat Justitia, Ruat Caelum</p>
 
-        <div class="hero-actions">
-          <a href="#areas" class="btn btn-primary">Explore Practice Areas</a>
-          <a href="#contact" class="btn btn-secondary">Contact Chambers</a>
+          <p class="hero-subtitle">
+            A modern legal practice built around access, strategy, and sustained advocacy.
+            Pinak Chambers works across litigation, public-interest matters, and client-first legal support.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#areas" class="btn btn-primary">Explore Areas</a>
+            <a href="#contact" class="btn btn-secondary">Contact Chambers</a>
+          </div>
+        </div>
+
+        <div class="hero-note">
+          <p>
+            “Let justice be done, though the heavens fall.”
+          </p>
+          <span>Justice. Strategy. Access.</span>
         </div>
       </section>
     </header>
@@ -476,8 +561,8 @@
         <h2>Independent legal representation for complex and meaningful matters.</h2>
         <p class="wide-text">
           Pinak Chambers is a founder-led legal practice focused on clients who require serious,
-          sustained, and strategic advocacy. The Chambers works on matters that often involve
-          litigation, institutional barriers, public-interest concerns, and long-term client support.
+          sustained, and strategic advocacy. The Chambers works on matters involving litigation,
+          institutional barriers, public-interest concerns, and long-term client support.
         </p>
       </section>
 
@@ -506,7 +591,7 @@
 
           <div class="area-card">
             <h3>Veterans' Rights</h3>
-            <p>Support in matters connected to welfare, medical rights, and institutional relief.</p>
+            <p>Support in matters connected to welfare, medical rights, pension issues, and institutional relief.</p>
           </div>
 
           <div class="area-card">
@@ -531,7 +616,7 @@
           </p>
 
           <div class="city-list">
-            <div class="city">Delhi</div>
+            <div class="city">Delhi NCR</div>
             <div class="city">Gurugram</div>
             <div class="city">City Three</div>
             <div class="city">City Four</div>
@@ -573,7 +658,7 @@
       <section id="founder" class="section">
         <div class="founder-card">
           <div class="portrait-placeholder">
-            Founder photo / logo space
+            Logo / Founder Image Space
           </div>
 
           <div>
@@ -622,7 +707,7 @@
           For legal inquiries, collaborations, or professional correspondence, contact the Chambers directly.
         </p>
 
-        <a href="mailto:your-email@example.com" class="btn">Email Pinak Chambers</a>
+        <a href="mailto:your-email@example.com" class="btn btn-primary">Email Pinak Chambers</a>
       </section>
 
     </main>
