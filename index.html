@@ -6,22 +6,23 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500;1,6..96,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Pinak Chambers</title>
   <meta name="description" content="Pinak Chambers is a modern legal practice focused on litigation, public-interest work, and client-first legal support." />
 
   <style>
     :root {
-      --bg: #FAF9F7;
-      --text: #111111;
-      --text-soft: #4B4B4B;
-      --accent: #8B8175;
-      --border: #E6E1DA;
-      --white: #FFFFFF;
+      --bg: #11281F;
+      --panel: #16362A;
+      --dark-panel: #0B1D16;
+      --text: #F8F5EF;
+      --text-soft: #CFC9BD;
+      --accent: #CFC9BD;
+      --border: #2A473D;
+      --white: #F8F5EF;
 
-      --font-main: 'Manrope', Arial, sans-serif;
-      --font-quote: 'Cormorant Garamond', Georgia, serif;
+      --font-main: 'Instrument Sans', Arial, sans-serif;
+      --font-display: 'Bodoni Moda', Georgia, serif;
     }
 
     * {
@@ -112,9 +113,10 @@
     }
 
     .hero-title {
-      font-family: var(--font-main);
+      font-family: var(--font-display);
+      font-style: italic;
       font-size: 64px;
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.05;
       letter-spacing: -2.4px;
       color: var(--text);
@@ -123,7 +125,7 @@
     }
 
     .motto {
-      font-family: var(--font-quote);
+      font-family: var(--font-display);
       font-style: italic;
       font-size: 26px;
       font-weight: 500;
@@ -154,7 +156,7 @@
     }
 
     .btn-primary {
-      background: var(--text);
+      background: var(--dark-panel);
       color: var(--white);
       border: 1px solid var(--text);
     }
@@ -181,7 +183,7 @@
     }
 
     .hero-note p {
-      font-family: var(--font-quote);
+      font-family: var(--font-main);
       font-size: 28px;
       font-style: italic;
       line-height: 1.35;
@@ -215,6 +217,8 @@
     }
 
     h2 {
+      font-family: var(--font-display);
+      font-style: italic;
       font-size: 42px;
       line-height: 1.15;
       font-weight: 600;
@@ -241,7 +245,7 @@
     }
 
     .panel {
-      background: var(--white);
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 32px;
@@ -266,7 +270,7 @@
     }
 
     .area-card {
-      background: var(--white);
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 28px;
@@ -286,7 +290,7 @@
     }
 
     .cities {
-      background: var(--white);
+      background: var(--panel);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -316,7 +320,7 @@
     }
 
     .stat {
-      background: var(--text);
+      background: var(--dark-panel);
       color: var(--white);
       border-radius: 22px;
       padding: 30px;
@@ -336,7 +340,7 @@
     }
 
     .founder-card {
-      background: var(--white);
+      background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 28px;
       padding: 42px;
@@ -371,7 +375,7 @@
     }
 
     .co-counsels {
-      background: var(--text);
+      background: var(--dark-panel);
       color: var(--white);
       border-radius: 30px;
     }
@@ -427,7 +431,7 @@
     footer {
       padding: 34px 30px;
       text-align: center;
-      background: var(--white);
+      background: var(--panel);
       border-top: 1px solid var(--border);
       color: var(--accent);
       font-size: 14px;
