@@ -510,14 +510,16 @@
       }
     }
 
-    .logo-brand {
-      display: inline-flex;
-      align-items: center;
-    }
-     .site-logo {
+    .nav-blank {
+      width: 160px;
       height: 54px;
-      width: auto;
+    }
+    
+    .hero-logo {
+      width: min(620px, 92vw);
+      height: auto;
       display: block;
+      margin-bottom: 22px;
     }
     
   </style>
@@ -528,11 +530,7 @@
 
     <header id="home">
       <nav class="nav">
-        <a href="#home" class="brand logo-brand">
-          <img src="logo.png.png" alt="Pinak Chambers logo" class="site-logo">
-          Pinak Chambers
-          <span>Legal Practice</span>
-        </a>
+         <div class="nav-blank"></div>
 
         <div class="nav-links">
           <a href="#about">About</a>
@@ -547,7 +545,7 @@
 
       <section class="hero">
         <div>
-          <h1 class="hero-title">Pinak Chambers</h1>
+          <img src="logo.png.png" alt="Pinak Chambers logo" class="hero-logo">
           <p class="motto">Fiat Justitia, Ruat Caelum</p>
 
           <p class="hero-subtitle">
