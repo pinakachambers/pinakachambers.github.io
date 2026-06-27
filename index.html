@@ -514,6 +514,13 @@
       display: none;
     }
     
+    .hero-logo-wrap {
+      width: 100vw;
+      margin-left: calc((1180px - 100vw) / 2);
+      display: flex;
+      justify-content: center;
+    }
+    
     .hero-logo {
       width: min(620px, 92vw);
       height: auto;
@@ -544,7 +551,9 @@
 
       <section class="hero">
         <div>
-          <img src="logo.png.png" alt="Pinak Chambers logo" class="hero-logo">
+          <div class="hero-logo-wrap">
+            <img src="logo.png.png" alt="Pinak Chambers logo" class="hero-logo">
+          </div>
           <p class="motto">Fiat Justitia, Ruat Caelum</p>
 
           <p class="hero-subtitle">
